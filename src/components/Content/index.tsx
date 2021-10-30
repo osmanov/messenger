@@ -100,6 +100,15 @@ function Messages() {
                 display="inline-block"
                 textAlign="left"
               >
+                <Text fontSize="xs" color="gray.300">
+                  {new Date(message.date).toLocaleTimeString(
+                    navigator.language,
+                    {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    }
+                  )}
+                </Text>
                 {parseTextLinesToArray(message.text).map((line, key) => {
                   return <Box key={key}>{line}</Box>;
                 })}
