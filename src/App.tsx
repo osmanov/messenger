@@ -1,13 +1,18 @@
 import * as React from "react";
 import { ChakraProvider, theme } from "@chakra-ui/react";
-import { Layout } from "./Layout";
-import { Sidebar } from "./Sidebar";
-import { Content } from "./Content";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { Layout } from "./components/Layout";
+import { Sidebar } from "./components/Sidebar";
+import { Content } from "./components/Content";
+
+const queryClient = new QueryClient();
 
 export const App = () => (
   <ChakraProvider theme={theme}>
-    <Layout sidebar={<Sidebar />}>
-      <Content />
-    </Layout>
+    <QueryClientProvider client={queryClient}>
+      <Layout sidebar={<Sidebar />}>
+        <Content />
+      </Layout>
+    </QueryClientProvider>
   </ChakraProvider>
 );
