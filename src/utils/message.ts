@@ -1,5 +1,5 @@
 import { useMutation, UseQueryOptions, useQuery } from "react-query";
-interface IMessage {
+export interface IMessage {
   text: string;
   date: Date;
 }
