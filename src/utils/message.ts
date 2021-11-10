@@ -1,4 +1,4 @@
-import { useMutation, UseQueryOptions, useQuery } from "react-query";
+import {useMutation, UseQueryOptions, useQuery} from 'react-query';
 export interface IMessage {
   text: string;
   date: Date;
@@ -9,12 +9,12 @@ interface IContents {
 }
 
 function getAllUsersMessages(): Promise<IContents> {
-  return new Promise((res) => {
+  return new Promise(res => {
     setTimeout(() => {
       res(
         JSON.parse(
-          localStorage.getItem("allUsersMessages") as string
-        ) as IContents
+          localStorage.getItem('allUsersMessages') as string,
+        ) as IContents,
       );
     }, 1);
   });
@@ -37,19 +37,19 @@ async function putMessage({
 }: IPutMessageInput): Promise<IPutMessageOutput> {
   let allUsersMessages = (await getAllUsersMessages()) || {};
   const prevMessages = allUsersMessages[userId];
-  const newMessage = { text, date: new Date() };
+  const newMessage = {text, date: new Date()};
   if (prevMessages) {
     allUsersMessages[userId] = [...(prevMessages as IMessage[]), newMessage];
   } else {
     allUsersMessages[userId] = [newMessage];
   }
-  localStorage.setItem("allUsersMessages", JSON.stringify(allUsersMessages));
-  return { ...newMessage, userId };
+  localStorage.setItem('allUsersMessages', JSON.stringify(allUsersMessages));
+  return {...newMessage, userId};
 }
 
 export function useGetMessagesByUserId(userId: string) {
-  return useQuery(["messagesByUserId", userId], () =>
-    fetchGetMessagesByUserId(userId)
+  return useQuery(['messagesByUserId', userId], () =>
+    fetchGetMessagesByUserId(userId),
   );
 }
 
@@ -62,5 +62,5 @@ export function usePutMessage(options?: UseQueryOptions<IPutMessageOutput>) {
 
 //split text by '\n'
 export function parseTextLinesToArray(str: string) {
-  return str.split("\n");
+  return str.split('\n');
 }
