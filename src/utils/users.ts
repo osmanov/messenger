@@ -4,7 +4,7 @@ export interface IUser {
   name: string;
   instrument: string;
 }
-function fetchGetUsers(): Promise<IUser[]> {
+export function fetchGetUsers(): Promise<IUser[]> {
   return new Promise(res => {
     setTimeout(() => {
       res([
