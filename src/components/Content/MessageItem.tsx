@@ -4,7 +4,7 @@ import {parseTextLinesToArray, IMessage} from '../../utils/message';
 
 export function MessageItem({date, text}: IMessage) {
   return (
-    <Box textAlign="right">
+    <Box textAlign="right" data-testid="message-item">
       <Box
         key={date.toString()}
         borderRadius="6"
