@@ -1,6 +1,6 @@
-import * as React from "react";
-import { useBoolean, useMediaQuery } from "@chakra-ui/react";
-import { useUsers, IUser } from "../utils/users";
+import * as React from 'react';
+import {useBoolean, useMediaQuery} from '@chakra-ui/react';
+import {useUsers, IUser} from '../utils/users';
 
 interface ILayoutContext {
   isMobileSidebarStretched: boolean;
@@ -28,8 +28,8 @@ interface ILayoutProvider {
 export function LayoutProvider(props: ILayoutProvider) {
   const [flag, setFlag] = useBoolean();
   const [flagManual, setFlagManual] = useBoolean();
-  const [isMobileWidth] = useMediaQuery("(max-width: 30em)");
-  const { id } = useActiveUser();
+  const [isMobileWidth] = useMediaQuery('(max-width: 30em)');
+  const {id} = useActiveUser();
   React.useEffect(() => {
     if (isMobileWidth) {
       setFlag.on();
@@ -81,10 +81,10 @@ interface IActiveProvider {
 export function ActiveProvider(props: IActiveProvider) {
   const [id, setId] = React.useState<null | string>(null);
   const [meta, setMeta] = React.useState<IUser | null>(null);
-  const { data: users } = useUsers();
+  const {data: users} = useUsers();
   React.useEffect(() => {
     if (id) {
-      const user = users?.find((user) => user.id === id) || null;
+      const user = users?.find(user => user.id === id) || null;
       setMeta(user);
     } else {
       setMeta(null);

@@ -1,10 +1,10 @@
-import * as React from "react";
-import { useUsers } from "../../utils/users";
-import { Progress } from "../common/Progress";
-import { UserItem } from "./UserItem";
+import * as React from 'react';
+import {useUsers} from '../../utils/users';
+import {Progress} from '../common/Progress';
+import {UserItem} from './UserItem';
 
 export function UserList() {
-  const { isLoading, data: users } = useUsers();
+  const {isLoading, data: users} = useUsers();
 
   if (isLoading) {
     return <Progress />;

@@ -1,9 +1,9 @@
-import * as React from "react";
-import { ChakraProvider, theme, Flex } from "@chakra-ui/react";
-import { QueryClient, QueryClientProvider } from "react-query";
-import { Sidebar } from "./components/Sidebar";
-import { Content } from "./components/Content";
-import { ActiveProvider, LayoutProvider } from "./context";
+import * as React from 'react';
+import {ChakraProvider, theme, Flex} from '@chakra-ui/react';
+import {QueryClient, QueryClientProvider} from 'react-query';
+import {Sidebar} from './components/Sidebar';
+import {Content} from './components/Content';
+import {ActiveProvider, LayoutProvider} from './context';
 
 const queryClient = new QueryClient();
 
@@ -14,7 +14,7 @@ export const App = () => (
         <LayoutProvider>
           <Flex h="100vh">
             <Sidebar />
-            <Content />
+            {/* <Content /> */}
           </Flex>
         </LayoutProvider>
       </ActiveProvider>
